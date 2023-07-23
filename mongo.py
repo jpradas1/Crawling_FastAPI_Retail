@@ -24,7 +24,9 @@ for ii, product in enumerate(adidas):
 # Up MongoDB connection
 
 client = MongoClient('mongodb://localhost:27017/')
-# client = MongoClient(os.environ.get("MONGO_URL"))
+
+# MONGO_URL = os.environ.get('MONGO_URL')
+# client = MongoClient(MONGO_URL)
 
 # Defining the database 'products' and the collection 'item' where
 # data is going to be allocated
