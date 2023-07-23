@@ -1,6 +1,9 @@
 import json
 from pymongo import MongoClient
 
+'''This file is to create the dataset in a MongoDB server, in this case
+    is a local server.'''
+
 # Read json files to create the database on MongoDB
 
 with open('./dataset/puma.json', 'r') as json_file:
