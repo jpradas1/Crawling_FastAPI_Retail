@@ -1,5 +1,6 @@
 import json
 from pymongo import MongoClient
+import os
 
 '''This file is to create the dataset in a MongoDB server, in this case
     is a local server.'''
@@ -23,6 +24,7 @@ for ii, product in enumerate(adidas):
 # Up MongoDB connection
 
 client = MongoClient('mongodb://localhost:27017/')
+# client = MongoClient(os.environ.get("MONGO_URL"))
 
 # Defining the database 'products' and the collection 'item' where
 # data is going to be allocated
