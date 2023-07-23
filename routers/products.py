@@ -9,7 +9,7 @@ from .queries import categories, brand_category
 product = APIRouter()
 
 @product.get('/products', tags=['All Products'])
-def get_all_products() -> list[Product]:
+def get_all_products():
 
     result = productsEntity(connection.products.items.find())
     return JSONResponse(status_code=200, content=result)
@@ -46,7 +46,7 @@ def get_product_categories() -> Category:
     return JSONResponse(status_code=200, content=result)
 
 @product.get('/brand', tags=['Product by quality'])
-def get_product_brand(brand: str, category: str) -> list[Product]:
+def get_product_brand(brand: str, category: str):
     result = connection.products.items.aggregate(brand_category(brand, category))
     result = productsEntity([x for x in result])
     if result:
