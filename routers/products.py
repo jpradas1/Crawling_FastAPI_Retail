@@ -43,7 +43,6 @@ def get_product_categories() -> Category:
     result = connection.products.items.aggregate(categories)
     result = categoryEntity([x for x in result][0])
     result['categories'] = sorted(result['categories'])
-    print(result)
     return JSONResponse(status_code=200, content=result)
 
 @product.get('/brand', tags=['Product by quality'])
