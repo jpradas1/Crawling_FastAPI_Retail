@@ -2,19 +2,21 @@ from pydantic import BaseModel
 from typing import Optional
 
 class Product(BaseModel):
-    _id: Optional[str]
     id: Optional[int]
     title: str
-    description: str
     brand: str
+    description: str
+    pid: Optional[int]
+    color: str
+    current_price: float
+    original_price: float
+    currency: str
     inventory: str
-    colors: str
-    current_price: str
-    original_price: str
-    size: list
-    url_pictures: list
-    category_path: list
+    sizes: list
+    category_path: str
+    URL_images: list
+    URL_product: str
 
-class Category(BaseModel):
-    _id: Optional[str]
-    distinctWords: list
+# class Category(BaseModel):
+#     _id: Optional[str]
+#     distinctWords: list
