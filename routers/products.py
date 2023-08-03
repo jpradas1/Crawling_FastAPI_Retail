@@ -29,7 +29,7 @@ def get_product_id_mongo(pid: int) -> Product:
         return JSONResponse(status_code=200, content=result)
     
     except:
-        return JSONResponse(status_code=404, content={'message': "Not found"})
+        return JSONResponse(status_code=404, content={'message': f"Not found pid = {pid}"})
 
 @product.get('/categories', tags=['Categories'])
 def get_all_categories() -> dict:
