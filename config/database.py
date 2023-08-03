@@ -12,5 +12,5 @@ class Settings(BaseSettings):
 setting = Settings()
 MONGO_URL = setting.MONGO_URL
 connection = MongoClient(MONGO_URL)
-products = connection['Products']
-collection = products['product_items']
+database = connection[setting.DATABASE]
+collection = database[setting.COLLECTION]

@@ -13,9 +13,4 @@ tags_metadata = [{
     "name": "Categories",
     "description": '''This method displays all possible categories, e.g., 
                         Girls, Hoodies, Jackets, Men, Kids and so forth.'''
-},
-{
-    "name": "Product by quality",
-    "description": '''Given a brand and a category, this method brings in
-                        all matches for both qualities.'''
 }]

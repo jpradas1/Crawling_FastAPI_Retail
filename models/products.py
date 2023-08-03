@@ -16,7 +16,3 @@ class Product(BaseModel):
     category_path: str
     URL_images: list
     URL_product: str
-
-# class Category(BaseModel):
-#     _id: Optional[str]
-#     distinctWords: list
