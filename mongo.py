@@ -1,42 +1,29 @@
-import json
+import bson
 from pymongo import MongoClient
 import os
 
-'''This file is to create the dataset in a MongoDB server, in this case
-    is a local server.'''
+'''This file is to create the dataset in a MongoDB server.'''
 
-# Read json files to create the database on MongoDB
+# Read bson file to create the database on MongoDB
 
-with open('./dataset/puma.json', 'r') as json_file:
-    puma = json.load(json_file)
+with open('./dataset/Products/product_items.bson', 'rb') as bson_file:
+    bson_data = bson_file.read()
 
-with open('./dataset/adidas.json', 'r') as json_file:
-    adidas = json.load(json_file)
-
-# Creating a unique id for each item
-
-for ii, product in enumerate(puma):
-    product["id"] = ii
-
-for ii, product in enumerate(adidas):
-    product['id'] = ii + len(puma)
+decoded_data = bson.decode_all(bson_data)
 
 # Up MongoDB connection
 
-client = MongoClient('mongodb://localhost:27017/')
-
-# MONGO_URL = os.environ.get('MONGO_URL')
-# client = MongoClient(MONGO_URL)
+MONGO_URL = os.environ.get('MONGO_URL')
+client = MongoClient(MONGO_URL)
 
 # Defining the database 'products' and the collection 'item' where
 # data is going to be allocated
 
-products = client['products']
-collection = products['items']
+products = client['Products']
+collection = products['product_items']
 
 # Inserting both datasets, puma and adidas
 
-inserted_puma = collection.insert_many(puma)
-inserted_adidas = collection.insert_many(adidas)
+inserted_puma = collection.insert_many(decoded_data)
 
 client.close()
