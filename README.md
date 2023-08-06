@@ -37,6 +37,7 @@ or for Windows
 ```
 set MONGO_URL="mongodb://{MONGOUSER}:{MONGOPASSWORD}@{MONGOHOST}:{MONGOPORT}"
 ```
+Then run `mongo.py`.
 ## Run FastAPI Locally
 To run this project locally using whatever Mongo server, just run
 
