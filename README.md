@@ -49,8 +49,4 @@ uvicorn main:app --reload
 ```
 MONGO_URL="mongodb://{MONGOUSER}:{MONGOPASSWORD}@{MONGOHOST}:{MONGOPORT}" uvicorn main:app --reload
 ```
-And start to consume data on `localhost:8000/` and documentation on `localhost:8000/docs`.
-
-## Deploy
-There's a deploy of this API using [render.com](https://render.com/). To reach it out:
-### [Crawling Engineer FastAPI](https://crawling-engineer-fastapi.onrender.com/docs)
+Finally, you can start to consume data on `localhost:8000/` and documentation on `localhost:8000/docs`.
